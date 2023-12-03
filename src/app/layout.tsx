@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Comic_Neue } from "next/font/google"
 import "./globals.css"
+import { AuthProvider } from "./providers"
 
 const comicNeue = Comic_Neue({ subsets: ["latin"], weight: ["400", "700"] })
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={comicNeue.className}>{children}</body>
+      <AuthProvider>
+        <body className={comicNeue.className}>{children}</body>
+      </AuthProvider>
     </html>
   )
 }
