@@ -23,7 +23,7 @@ export default function Home() {
       {status === "authenticated" && (
         <>
           <div className="flex items-center flex-col gap-5">
-            <h1 className="text-4xl">Welcome, {data?.user?.name}</h1>
+            <h1 className="text-4xl">Welcome, {data.user.name}</h1>
             <button
               className="border-2 border-white py-2 px-4 rounded font-bold hover:bg-white hover:text-black duration-300"
               onClick={handleLogout}
