@@ -1,13 +1,19 @@
 "use client"
 
 import { FaArrowDown } from "react-icons/fa6"
-import { Logout } from "./components/LogoutButton"
-import { Information } from "./components/information"
 import { useSession } from "next-auth/react"
-import { Login } from "./components/LoginButton"
+import { signIn, signOut } from "next-auth/react"
 
 export default function Home() {
   const { status, data } = useSession()
+
+  async function handleLogin() {
+    await signIn()
+  }
+
+  async function handleLogout() {
+    await signOut()
+  }
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col">
@@ -17,8 +23,13 @@ export default function Home() {
       {status === "authenticated" && (
         <>
           <div className="flex items-center flex-col gap-5">
-            <Information />
-            <Logout />
+            <h1 className="text-4xl">Welcome, {data?.user?.name}</h1>
+            <button
+              className="border-2 border-white py-2 px-4 rounded font-bold hover:bg-white hover:text-black duration-300"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </div>
         </>
       )}
@@ -32,7 +43,12 @@ export default function Home() {
             <span className="mr-5 -rotate-90">
               <FaArrowDown color="#fff" />
             </span>
-            <Login />
+            <button
+              className="border-2 border-white py-2 px-4 rounded font-bold hover:bg-white hover:text-black duration-300"
+              onClick={handleLogin}
+            >
+              Login
+            </button>
             <span className="ml-5 rotate-90">
               <FaArrowDown color="#fff" />
             </span>
