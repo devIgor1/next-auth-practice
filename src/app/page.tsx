@@ -1,13 +1,8 @@
 import { FC } from "react"
+import Home from "./home/page"
 
-interface AppProps {}
-
-const App: FC<AppProps> = ({}) => {
-  return (
-    <div>
-      <h1>Hello APP</h1>
-    </div>
-  )
+const App: FC = () => {
+  return <Home />
 }
 
 export default App
