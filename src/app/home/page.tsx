@@ -5,7 +5,7 @@ const Home: FC = () => {
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col">
       <h1 className="mb-32 text-3xl md:text-5xl">
-        Practicing some next-auth for fun
+        Practicing some next-auth, prisma and mongodb for fun
       </h1>
       <span className="mb-5">
         <FaArrowDown color="#fff" />
